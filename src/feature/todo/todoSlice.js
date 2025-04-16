@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    todos: [{}] ,
+    todos: [] ,
 }
 
 const todoSlice = createSlice({
@@ -15,7 +15,7 @@ const todoSlice = createSlice({
             state.todos = state.todos.filter((todo)=>(todo.id != action.payload))
         },
         update: (state, action)=>{
-            state.todos.map((todo)=>(todo.id == action.payload.id ? action.payload : todo))
+            state.todos.map((todo)=>( todo.id == action.payload ? todo.isComplete=!todo.isComplete : todo))
         },
     }
 
